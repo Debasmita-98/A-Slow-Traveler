@@ -1,111 +1,139 @@
-# Wanderlog
+# A Slow Traveler 
 
-A premium, editorial personal travel journal — built with Next.js 15, TypeScript, Tailwind CSS, and MDX. This is not a travel-agency template: it's a slow-travel, storytelling-first journal for someone who travels rarely but writes about it deeply.
+### A Personal Travel Journal
 
-**Live design language:** calm, minimal, magazine-inspired (Kinfolk / Cereal / Medium), cream background, serif display type, warm clay accent.
 
----
 
-## Tech stack
+## About the Project
 
-- **Next.js 15** (App Router, TypeScript, static generation)
-- **Tailwind CSS v4** (CSS-first `@theme` design tokens)
-- **Framer Motion** for restrained entrance animations
-- **MDX** (`next-mdx-remote`) for blog content, with frontmatter via `gray-matter`
-- **next-themes** for dark mode
-- **Lucide** icons
-- Self-hosted fonts via `@fontsource` (Cormorant Garamond, Inter, JetBrains Mono) — no runtime dependency on Google Fonts
+**A Slow Traveler** is my personal travel journal, created out of my love for traveling, exploring new places, and collecting memories along the way.
 
-## Folder structure
+I have always enjoyed discovering new destinations, experiencing different cultures, and finding beauty in the little moments of a journey. I wanted a space where I could document those experiences, share stories, and revisit my favorite memories.
 
+So, I decided to build my own travel journal website.
+
+Rather than focusing only on destinations, A Slow Traveler is about the experiences, photographs, and stories that make every journey special.
+
+## Features
+
+- **Personal Travel Journal:** A dedicated space for travel stories and experiences.
+- **Destination Explorer:** Browse travel entries organized by country.
+- **Photo Gallery:** A responsive masonry-style gallery with image previews.
+- **Search and Pagination:** Easily explore journal entries.
+- **Dark and Light Mode:** Switch between themes for a comfortable reading experience.
+- **Responsive Design:** Designed for desktop, tablet, and mobile devices.
+- **Smooth Animations:** Subtle transitions for an engaging browsing experience.
+- **Reading Experience:** Individual articles with reading progress indicators and a table of contents.
+
+## Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Next.js 15 | Frontend framework |
+| React | User interface |
+| TypeScript | Application development |
+| Tailwind CSS 4 | Styling and responsive design |
+| Framer Motion | Animations |
+| MDX | Travel journal content |
+| Lucide React | Icons |
+| next-themes | Theme switching |
+
+## Website Pages
+
+The website includes:
+
+- **Home:** Introduction, featured destinations, and recent journal entries.
+- **About:** The story and inspiration behind A Slow Traveler.
+- **Journal:** Travel stories with search and pagination.
+- **Destinations:** Travel content organized by location.
+- **Gallery:** A visual collection of travel moments.
+- **Contact:** A page for getting in touch.
+
+## Project Structure
+
+```text
+ASlowTraveler/
+├── app/
+│   ├── about/
+│   ├── contact/
+│   ├── destinations/
+│   ├── gallery/
+│   ├── journal/
+│   └── page.tsx
+├── components/
+│   ├── destinations/
+│   ├── gallery/
+│   ├── home/
+│   ├── journal/
+│   ├── layout/
+│   └── ui/
+├── constants/
+├── content/
+│   ├── bangladesh/
+│   ├── india/
+│   └── nepal/
+├── lib/
+├── public/
+├── types/
+├── package.json
+└── README.md
 ```
-app/                  Routes (App Router) — home, about, journal, destinations, gallery, contact, 404
-  journal/[slug]/      Individual blog post pages
-  destinations/[country]/  Country detail pages
-  sitemap.ts, robots.ts, rss.xml/route.ts   SEO endpoints
-components/
-  ui/                  Button, Tag, Quote, SectionTitle, EmptyState, LoadingSkeleton
-  layout/              Navbar, Footer, ThemeToggle, ScrollToTop, ReadingProgressBar, Breadcrumb
-  home/                 Hero, AboutPreview, LatestStories, FeaturedDestination, QuoteSection, GalleryPreview, Newsletter
-  journal/              StoryCard, SearchBar, Pagination, JournalExplorer, MDXContent, TableOfContents, ShareButtons
-  destinations/         DestinationCard
-  gallery/              MasonryGallery (with lightbox)
-content/
-  nepal/ india/ bangladesh/    Sample MDX posts, organized by country
-lib/                   posts.ts (MDX loading), utils.ts
-types/                 Shared TypeScript types
-constants/             site.ts (nav, socials), gallery.ts
-public/images/placeholders/   Procedurally generated placeholder artwork (swap for real photos)
+
+## Getting Started
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/Debasmita-98/ASlowTraveler.git
 ```
 
-## Getting started
+**2. Navigate to the project directory**
+
+```bash
+cd ASlowTraveler
+```
+
+**3. Install dependencies**
 
 ```bash
 npm install
+```
+
+**4. Start the development server**
+
+```bash
 npm run dev
 ```
 
-Visit `http://localhost:3000`.
+**5. Open the website**
 
-```bash
-npm run build   # production build
-npm run start   # serve the production build
-npm run lint     # ESLint
-```
+Visit `http://localhost:3000` in your browser.
 
-## Adding a new journal entry
+## Future Plans
 
-1. Create a new `.mdx` file inside `content/<country>/` (country must be one of `nepal`, `india`, `bangladesh` — or add a new one in `constants/site.ts` under `COUNTRIES`).
-2. Add frontmatter:
+I would love to continue improving this project by:
 
-```mdx
+- Adding more of my personal travel experiences.
+- Sharing original travel photographs.
+- Exploring new destinations and documenting their stories.
+- Enhancing the website's design and user experience.
+- Building a richer collection of travel memories over time.
+
+## Why I Built This
+
+Traveling has always been something I genuinely enjoy. I love the excitement of visiting unfamiliar places, discovering different surroundings, and making memories that stay with me.
+
+As a Computer Science graduate, I wanted to combine my interest in web development with something personal.
+
+**A Slow Traveler is my little corner of the internet where technology meets my love for travel.**
+
+## Author
+
+**Debasmita**  
+Computer Science Graduate | BRAC University
+
+GitHub: [@Debasmita-98](https://github.com/Debasmita-98)
+
 ---
-title: "Your Title"
-excerpt: "One or two sentences."
-date: "2026-01-01"
-country: "nepal"
-location: "Somewhere, Nepal"
-category: "Reflection"
-tags: ["mountains", "solo travel"]
-coverImage: "/images/placeholders/post-nepal-1.svg"
-coverAlt: "Description for accessibility"
----
-```
 
-3. Write the body in Markdown/MDX below the frontmatter — headings, blockquotes, tables, `<figure>` images, and fenced code blocks are all styled.
-
-The Journal, Destinations, sitemap, and RSS feed all pick this post up automatically.
-
-## Replacing placeholder images
-
-`public/images/placeholders/*.svg` were generated procedurally to match the site's palette (see `scripts/gen-placeholders.mjs`) since no real photography was supplied. Swap any `coverImage` / gallery path for a real photo of the same aspect ratio — `next/image` handles the rest.
-
-## Deployment
-
-Deploy on [Vercel](https://vercel.com):
-
-```bash
-npm i -g vercel
-vercel
-```
-
-Update `constants/site.ts` (`SITE.url`) to your production domain before deploying — it feeds `metadataBase`, the sitemap, and the RSS feed.
-
-## Design tokens
-
-| Token | Value |
-|---|---|
-| Background | `#F8F6F2` |
-| Foreground | `#2E2E2E` |
-| Secondary | `#6E6A63` |
-| Accent | `#B68C63` |
-| Border | `#DDD6CE` |
-| Heading font | Cormorant Garamond |
-| Body font | Inter |
-| Mono font | JetBrains Mono |
-
-Dark mode uses a warm near-black (`#171614`) rather than pure black, to keep the premium, non-clinical feel.
-
-## License
-
-MIT — do whatever you like with it.
+*Made with curiosity, creativity, and a love for exploring new places.* 🌍
